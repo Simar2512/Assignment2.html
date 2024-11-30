@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Manipulating the DOM</title>
+</head>
+<body>
+  <ul id="myList">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ul>
+  <script>
+    let list = document.getElementById('myList');
+    let newItem = document.createElement('li');
+    newItem.textContent = 'Fourth item';
+    list.appendChild(newItem);
+
+    list.addEventListener('click', function(event) {
+      if (event.target.tagName === 'LI') {
+        event.target.textContent = getRandomText();
+      }
+    });
+
+    function getRandomText() {
+      let texts = ['Hello', 'World', 'JavaScript', 'DOM'];
+      return texts[Math.floor(Math.random() * texts.length)];
+    }
+  </script>
+</body>
+</html>
+
